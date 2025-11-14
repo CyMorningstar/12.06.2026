@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- ScrollReveal -->
+    <!-- Убедитесь, что scrollreveal.min.js находится в той же папке, что и ваш index.html, или укажите правильный путь -->
+    <script src="scrollreveal.min.js"></script>
+
+    <!-- Ваш CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ДЕКОРАТИВНЫЕ PNG-ИЗОБРАЖЕНИЯ -->
+    <div class="decorative-image image-top-left hidden-on-load" style="background-image: url('flower.png');"></div>
+    <div class="decorative-image image-bottom-right hidden-on-load" style="background-image: url('flower2.png');"></div>
+
+    <!-- 1. Прелоадер -->
+    <div id="preloader">
+
+        <video id="preloader-video" autoplay loop muted playsinline>
+            <source src="Video/Particles_2_29s_2kres.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+
+        <!-- !!! НОВОЕ: Обертка для всего контента прелоадера (кроме видео) !!! -->
+        <!-- Этот div будет позиционироваться внизу на телефонах и по центру на десктопах -->
+        <div class="preloader-content-wrapper">
+
+            <div class="preloader-text-container">
+                <div class="preloader-text">WEDDING DAY</div>
+            </div>
+            <!-- Можем оставить его, или убрать, если он не нужен в финальном виде -->
+            <div class="unlock-label">Разблокируйте приглашение</div>
+
+            <!-- !!! НОВОЕ: Структура для нового ползунка !!! -->
+            <div class="slider-section">
+                <!-- Трек с пунктирными линиями и конечным кругом -->
+                <div class="slider-track-container">
+                    <!-- Сам слайдер (белый круг с ">") -->
+                    <div id="slider" class="slider">
+                        <i class="fas fa-chevron-right"></i> <!-- Используем стрелку -->
+                    </div>
+                    <!-- !!! НОВОЕ: Контурный круг, куда нужно перетащить основной ползунок !!! -->
+                    <div class="end-circle"></div>
+                </div>
+                <!-- Элемент для прогресс-полосы будет создан динамически JavaScript -->
+            </div>
+            <!-- !!! КОНЕЦ НОВОЙ СТРУКТУРЫ ПОЛЗУНКА !!! -->
+
+        </div> <!-- !!! КОНЕЦ НОВОЙ ОБЕРТКИ preloader-content-wrapper !!! -->
+    </div> <!-- Конец #preloader -->
+
+    <!-- Основной контент сайта -->
+    <!-- !!! НОВОЕ: Изначально главный контент скрыт (opacity: 0), будет показан после прелоадера !!! -->
+    <div id="main-content" class="main-content">
+
+        <video id="main-content-video" autoplay loop muted playsinline>
+                <source src="Video/Particles_2_29s_2kres.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+
+        <!-- Аудио -->
+        <div id="audio-controls">
+                <i id="play-pause-button" class="fas fa-play"></i>
+                <div id="music-label">Включи музыку нашей любви...</div>
+            </div>
+
+        <!-- Обертка для всех секций, чтобы управлять их общим появлением -->
+        <div class="sections-wrapper">
+
+                        <!-- Секция: Приглашение -->
+            <section id="invitation" class="section">
+                <div class="section-content">
+                    <h2>Дорогие друзья и родные!</h2>
+                    <p>Летом Мостоится очень важное и радостное для нас событие - рождение нашей семьи!</p> <!-- !!! ТЕКСТ ПРИГЛАШЕНИЯ !!! -->
+                    <p>Будем очень рады, если вы разделите этот счастливый и долгожданный день с нами и подарите нам свои улыбки!</p> <!-- !!! ТЕКСТ ПРИГЛАШЕНИЯ !!! -->
+                </div>
+            </section>
+
+            <!-- Секция: Дата и Таймер -->
+            <section id="date" class="section">
+                <div class="section-content"> <!-- Обертка для контента секции -->
+                    <div class="date-section">
+                        <h2>Приглашаем вас на нашу свадьбу</h2>
+                        <p>12 | 06 | 2026</p> <!-- !!! ВАША ДАТА !!! -->
+                        <div class="countdown">
+                            <div class="countdown-item">
+                                <span id="days">00</span>
+                                <div>Дней</div>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="hours">00</span>
+                                <div>Часов</div>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="minutes">00</span>
+                                <div>Минут</div>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="seconds">00</span>
+                                <div>Секунд</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция: Программа вечера -->
+            <section id="program" class="section">
+                <div class="section-content">
+                    <h2>PROGRAM DEY</h2>
+                    <ul class="program-list">
+                        <li>16:00 - Фуршет</li> <!-- !!! ВАША ПРОГРАММА !!! -->
+                        <li>16:30 - Выездная церемония</li>
+                        <li>17:00 - Начало банкета</li>
+                        <li>23:00 - Окончание банкета</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Секция: Место проведения -->
+            <section id="location" class="section">
+                <div class="section-content">
+                    <h2>LOCATION</h2>
+                    <div class="venue-details">
+                        <p>Будем ждать вас по адресу:</p>
+                        <p>Ресторан "Мангал"</p> <!-- !!! НАЗВАНИЕ МЕСТА !!! -->
+                        <p>г. Сыктывкар, ул. Карла Маркса, 182/1</p> <!-- !!! АДРЕС !!! -->
+                        <!-- !!! Важно: Ссылка на карту должна быть корректной, а <i> тег для Font Awesome, а не для ссылки !!! -->
+                        <p><a href="https://yandex.ru/maps/19/syktyvkar/house/ulitsa_karla_marksa_182_1/YUkYfgZpSkcFQFhrfXp2cnhmYQ==/?ll=50.819322%2C61.673455&z=17" target="_blank" class="social-link"><i class="fas fa-map-marker-alt"></i> Показать на карте</a></p> <!-- !!! Исправлен <i> тег и добавлен target="_blank" !!! -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция: Дресс-код -->
+            <section id="dress-code" class="section">
+                <div class="section-content">
+                    <h2>DRESS CODE</h2>
+                    <div class="dress-code-details">
+                        <p>Вы будите украшением вечера, если в вашем наряде будут присутствовать цвета нашей цветовой гаммы.</p> <!-- !!! ДРЕСС-КОД !!! -->
+                    </div>
+                    <div class="dress-code-colors">
+                        <div class="color-circle" style="background-color: #EDD7C0;"></div>
+                        <div class="color-circle" style="background-color: #CEB798;"></div>
+                        <div class="color-circle" style="background-color: #976E55;"></div>
+                        <div class="color-circle" style="background-color: #805434;"></div>
+                        <div class="color-circle" style="background-color: #5C3E1C;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="Details" class="section">
+                <div class="section-content">
+                    <h2>DETAILS</h2>
+                    <div class="details"> <!-- Класс "details details" был немного избыточен, оставил один -->
+                        <p>Мы будем рады получить вклад в семейный буджет в качестве подарка. Это определенно поможет нам реализовать нашу мечту.</p>
+                        <p> Вместо цветом можно принести корм для кошек и собак, который мы отдадим в приют для животных🤍</p>
+                    </div>
+            </section>
+            
+            <div class="section sr-animated">
+            <a href="https://web.telegram.org/k/#@haremolchat" target="_blank" class="social-link" id="telegram-link">
+                <i class="fab fa-telegram"></i>
+                Телеграм канал
+            </a>
+            <p>Телеграмм-канал нашего торжества</p>
+            <p>Вы сможете:</p>
+            <li>Записать кружок-поздравление для нас в день свадьбы</li>
+            <li>Обменяться фото и видео материалами</li>
+            <li>Получить ссылки на фото и видео отчеты по готовности</li>
+            <!-- !!! Убрал лишний тег </p> !!! -->
+        </div>
+
+        </div> <!-- Конец sections-wrapper -->
+
+    </div> <!-- Конец main-content -->
+
+    <!-- Ваш JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
