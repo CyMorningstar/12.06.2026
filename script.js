@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const slider = document.getElementById('slider');
     const sliderTrackContainer = document.querySelector('.slider-track-container');
-    const endCircle = sliderTrackContainer ? sliderTrackContainer.querySelector('.end-circle') : null; // Проверяем, существует ли sliderTrackContainer
-    
+    // Проверяем, существует ли sliderTrackContainer
+    const endCircle = sliderTrackContainer ? sliderTrackContainer.querySelector('.end-circle') : null;
+
     let sliderProgress;
     if (sliderTrackContainer) { // Создаем только если контейнер трека существует
         if (!document.querySelector('.slider-progress')) {
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Ограничиваем движение ползунка
             if (newPos < 0) newPos = 0;
             if (newPos > sliderTrackContainer.offsetWidth - slider.offsetWidth) newPos = sliderTrackContainer.offsetWidth - slider.offsetWidth;
-            
+
             slider.style.left = `${newPos}px`;
             currentSliderX = newPos;
 
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Ограничиваем движение конечного круга
             if (newPos < 0) newPos = 0;
             if (newPos > endCircleMaxMove) newPos = endCircleMaxMove;
-            
+
             endCircle.style.left = `${newPos}px`;
             currentEndCircleX = newPos;
         }
@@ -118,7 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Инициализация ползунков ---
     function initializeSlider() {
-        if (!sliderTrackContainer) return; // Выходим, если нет контейнера трека
+        if (!sliderTrackContainer || !slider || !endCircle) {
+            console.warn("Не удалось инициализировать слайдер: отсутствуют необходимые элементы.");
+            return; // Выходим, если нет контейнера трека
+        }
 
         // Рассчитываем позиции после загрузки или изменения размера
         sliderUnlockPoint = sliderTrackContainer.offsetWidth / 2 - slider.offsetWidth / 2;
@@ -281,21 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Обработка клика по треку для сброса ползунка ---
-    if (sliderTrackContainer) {
-        sliderTrackContainer.addEventListener('click', (e) => {
-            if (e.target === sliderTrackContainer || e.target === sliderProgress) {
-                if (!isDraggingSlider && !isDraggingEndCircle) {
-                    if (currentSliderX > 0) {
-                        currentSliderX = 0;
-                        slider.style.left = `${currentSliderX}px`;
-                        if (sliderProgress) sliderProgress.style.width = '0%';
-                    }
-                }
-            }
-        });
-    }
-
+// --- Обработка клика по треку для сброса ползунка ---
+// Убрал эту функцию, так как возвращение ползунка в начало, может ввести в заблуждение пользователя
     // --- Инициализация позиций и обработчиков ---
     setPreloaderContentPosition();
     // Инициализируем слайдер один раз при загрузке
