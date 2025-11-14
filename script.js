@@ -188,15 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
             startCountdown();
         }, 1000);
     }
-    // Видео
-    backgroundVideo.src = backgroundVideoSrc;
-    backgroundVideo.onerror = () => {
-        console.error("Ошибка загрузки фонового видео:", backgroundVideo.src);
-        preloader.style.backgroundColor = '#333';
-        alert(`Ошибка загрузки фонового видео: ${backgroundVideo.src}. Проверьте путь и файл!`);
-    };
-    backgroundVideo.setAttribute('muted', '');
-    backgroundVideo.setAttribute('playsinline', '');
 
     // --- Таймер обратного отсчета ---
     const weddingDate = new Date("June 12, 2026 16:00:00").getTime(); // !!! Дата свадьбы !!!
@@ -301,4 +292,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Инициализируем слайдер один раз при загрузке
     initializeSlider();
 });
+
 
