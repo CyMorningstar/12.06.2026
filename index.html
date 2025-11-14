@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Важно: Убедитесь, что viewport правильно настроен для мобильных устройств -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Приглашение на свадьбу</title>
 
     <!-- Google Fonts -->
@@ -14,7 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- ScrollReveal -->
-    <!-- Убедитесь, что scrollreveal.min.js находится в той же папке, что и ваш index.html, или укажите правильный путь -->
     <script src="scrollreveal.min.js"></script>
 
     <!-- Ваш CSS -->
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    <!-- ДЕКОРАТИВНЫЕ PNG-ИЗОБРАЖЕНИЯ -->
+    <!-- Декоративные PNG-изображения -->
     <div class="decorative-image image-top-left hidden-on-load" style="background-image: url('flower.png');"></div>
     <div class="decorative-image image-bottom-right hidden-on-load" style="background-image: url('flower2.png');"></div>
 
@@ -35,13 +35,12 @@
         </video>
 
         <!-- !!! НОВОЕ: Обертка для всего контента прелоадера (кроме видео) !!! -->
-        <!-- Этот div будет позиционироваться внизу на телефонах и по центру на десктопах -->
         <div class="preloader-content-wrapper">
 
             <div class="preloader-text-container">
                 <div class="preloader-text">WEDDING DAY</div>
             </div>
-            <!-- Можем оставить его, или убрать, если он не нужен в финальном виде -->
+            <!-- Можно оставить его, или убрать, если он не нужен в финальном виде -->
             <div class="unlock-label">Разблокируйте приглашение</div>
 
             <!-- !!! НОВОЕ: Структура для нового ползунка !!! -->
@@ -67,24 +66,24 @@
     <div id="main-content" class="main-content">
 
         <video id="main-content-video" autoplay loop muted playsinline>
-                <source src="Particles_2_29s_2kres.mp4" type="video/mp4">
+            <source src="Particles_2_29s_2kres.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео тег.
         </video>
 
         <!-- Аудио -->
         <div id="audio-controls">
-                <i id="play-pause-button" class="fas fa-play"></i>
-                <div id="music-label">Включи музыку нашей любви...</div>
-            </div>
+            <i id="play-pause-button" class="fas fa-play"></i>
+            <div id="music-label">Включи музыку нашей любви...</div>
+        </div>
 
         <!-- Обертка для всех секций, чтобы управлять их общим появлением -->
         <div class="sections-wrapper">
 
-                        <!-- Секция: Приглашение -->
+            <!-- Секция: Приглашение -->
             <section id="invitation" class="section">
                 <div class="section-content">
                     <h2>Дорогие друзья и родные!</h2>
-                    <p>Летом Мостоится очень важное и радостное для нас событие - рождение нашей семьи!</p> <!-- !!! ТЕКСТ ПРИГЛАШЕНИЯ !!! -->
+                    <p>Летом состоится очень важное и радостное для нас событие - рождение нашей семьи!</p> <!-- !!! ТЕКСТ ПРИГЛАШЕНИЯ !!! -->
                     <p>Будем очень рады, если вы разделите этот счастливый и долгожданный день с нами и подарите нам свои улыбки!</p> <!-- !!! ТЕКСТ ПРИГЛАШЕНИЯ !!! -->
                 </div>
             </section>
@@ -149,7 +148,7 @@
                 <div class="section-content">
                     <h2>DRESS CODE</h2>
                     <div class="dress-code-details">
-                        <p>Вы будите украшением вечера, если в вашем наряде будут присутствовать цвета нашей цветовой гаммы.</p> <!-- !!! ДРЕСС-КОД !!! -->
+                        <p>Вы будете украшением вечера, если в вашем наряде будут присутствовать цвета нашей цветовой гаммы.</p> <!-- !!! ДРЕСС-КОД !!! -->
                     </div>
                     <div class="dress-code-colors">
                         <div class="color-circle" style="background-color: #EDD7C0;"></div>
@@ -165,23 +164,22 @@
                 <div class="section-content">
                     <h2>DETAILS</h2>
                     <div class="details"> <!-- Класс "details details" был немного избыточен, оставил один -->
-                        <p>Мы будем рады получить вклад в семейный буджет в качестве подарка. Это определенно поможет нам реализовать нашу мечту.</p>
-                        <p> Вместо цветом можно принести корм для кошек и собак, который мы отдадим в приют для животных🤍</p>
+                        <p>Мы будем рады получить вклад в семейный бюджет в качестве подарка. Это определенно поможет нам реализовать нашу мечту.</p>
+                        <p> Вместо цветом можно принести корм для кошек и собак, который мы отдадим в приют для животных🐾</p>
                     </div>
             </section>
-            
+
             <div class="section sr-animated">
-            <a href="https://web.telegram.org/k/#@haremolchat" target="_blank" class="social-link" id="telegram-link">
-                <i class="fab fa-telegram"></i>
-                Телеграм канал
-            </a>
-            <p>Телеграмм-канал нашего торжества</p>
-            <p>Вы сможете:</p>
-            <li>Записать кружок-поздравление для нас в день свадьбы</li>
-            <li>Обменяться фото и видео материалами</li>
-            <li>Получить ссылки на фото и видео отчеты по готовности</li>
-            <!-- !!! Убрал лишний тег </p> !!! -->
-        </div>
+                <a href="https://web.telegram.org/k/#@haremolchat" target="_blank" class="social-link" id="telegram-link">
+                    <i class="fab fa-telegram"></i>
+                    Телеграм канал
+                </a>
+                <p>Телеграмм-канал нашего торжества</p>
+                <p>Вы сможете:</p>
+                <li>Записать кружок-поздравление для нас в день свадьбы</li>
+                <li>Обменяться фото и видео материалами</li>
+                <li>Получить ссылки на фото и видео отчёты по готовности</li>
+            </div>
 
         </div> <!-- Конец sections-wrapper -->
 
