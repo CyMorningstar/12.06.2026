@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Аудио ---
     const playPauseButton = document.getElementById('play-pause-button');
     const audio = new Audio();
-    audio.src = 'music/musicLove.mp3'; // !!! Путь к вашей музыке !!!
+    audio.src = 'musicLove.mp3'; // !!! Путь к вашей музыке !!!
     audio.loop = true;
 
     let isMusicPlaying = false;
@@ -300,4 +300,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setPreloaderContentPosition();
     // Инициализируем слайдер один раз при загрузке
     initializeSlider();
+
 });
